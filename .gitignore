@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js build artifacts
+.next/
+out/
+
+# API build artifacts & caches
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# Environmental variables & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS/System files
+.DS_Store
+Thumbs.db
