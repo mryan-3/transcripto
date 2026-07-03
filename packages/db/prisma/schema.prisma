@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [vector]
+}
+
+model Meeting {
+  id        String   @id @default(cuid())
+  title     String
+  createdAt DateTime @default(now())
+  status    String   @default("PENDING")
+  audioUrl  String?
+
+  segments TranscriptSegment[]
+  insights Insight[]
+}
+
+model TranscriptSegment {
+  id        String  @id @default(cuid())
+  meetingId String
+  startTime Float
+  endTime   Float
+  speaker   String?
+  text      String
+
+  // pgvector extension field to store OpenAI embeddings (1536 dimensions)
+  embedding Unsupported("vector(1536)")?
+
+  meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+}
+
+enum InsightType {
+  ACTION_ITEM
+  REQUIREMENT
+  QUESTION
+  SUMMARY
+}
+
+model Insight {
+  id        String      @id @default(cuid())
+  meetingId String
+  type      InsightType
+  content   String
+
+  meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+}

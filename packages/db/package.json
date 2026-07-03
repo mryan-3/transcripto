@@ -1,0 +1,17 @@
+{
+  "name": "@transcripto/db",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "db:format": "prisma format"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prisma": "^6.0.0",
+    "typescript": "^5.0.0"
+  }
+}
