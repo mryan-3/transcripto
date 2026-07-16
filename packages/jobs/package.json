@@ -1,0 +1,23 @@
+{
+  "name": "@transcripto/jobs",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/worker.ts",
+    "start": "node dist/worker.js"
+  },
+  "dependencies": {
+    "bullmq": "^5.7.8",
+    "ioredis": "^5.4.1",
+    "@transcripto/db": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

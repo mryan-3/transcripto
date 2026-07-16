@@ -45,7 +45,8 @@ export const uploadMeeting = async (req: Request, res: Response<ApiResponse>) =>
       }
     });
     
-    // In Phase 2, we will trigger a background job here
+    const { meetingQueue } = require('@transcripto/jobs');
+    await meetingQueue.add('process-video', { meetingId: newMeeting.id });
     
     res.status(201).json({ success: true, data: newMeeting });
   } catch (error) {
