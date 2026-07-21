@@ -15,7 +15,7 @@ export default function SummaryPanel({ insights }: SummaryPanelProps) {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto p-8 space-y-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex-1 overflow-y-auto p-8 space-y-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
       {insights.map((insight) => (
         <div key={insight.id} className="flex gap-4 group">
           <span className="font-mono text-sm text-forest-700/30 select-none pt-1">

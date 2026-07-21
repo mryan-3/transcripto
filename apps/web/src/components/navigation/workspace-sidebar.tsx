@@ -10,7 +10,7 @@ interface WorkspaceSidebarProps {
 
 export default function WorkspaceSidebar({ meetings, activeId, onSelect, onNewClick }: WorkspaceSidebarProps) {
   return (
-    <aside className="w-80 bg-forest-700 text-[#FAF9F6] flex flex-col relative z-30 h-screen flex-shrink-0">
+    <aside className="w-80 bg-forest-700 text-[#FAF9F6] flex flex-col relative z-30 h-screen shrink-0">
 
 
       <svg

@@ -24,6 +24,7 @@ export interface Meeting {
   title: string;
   createdAt: string;
   status: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
+  audioUrl?: string;
   segments: Segment[];
   insights: Insight[];
   chats: ChatMessage[];

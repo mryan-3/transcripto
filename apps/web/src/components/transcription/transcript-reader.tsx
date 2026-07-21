@@ -14,18 +14,17 @@ export default function TranscriptReader({ segments, currentTime, onTimeClick }:
   };
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 py-8 space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex-1 overflow-y-auto px-6 py-8 space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none">
       {segments.map((segment) => {
         const isActive = currentTime >= segment.startTime && currentTime <= segment.endTime;
-        
+
         return (
-          <div 
-            key={segment.id} 
-            className={`flex gap-6 px-6 py-5 rounded-2xl transition-all duration-500 ease-out ${
-              isActive 
-                ? 'bg-white/40 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-forest-700/5 scale-[1.02] transform-gpu z-10' 
+          <div
+            key={segment.id}
+            className={`flex gap-6 px-6 py-5 rounded-2xl transition-all duration-500 ease-out ${isActive
+                ? 'bg-white/40 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-forest-700/5 scale-[1.02] transform-gpu z-10'
                 : 'opacity-40 hover:opacity-80 hover:bg-white/20'
-            }`}
+              }`}
           >
             <button
               onClick={() => onTimeClick(segment.startTime)}
