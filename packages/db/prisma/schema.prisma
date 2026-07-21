@@ -31,8 +31,8 @@ model TranscriptSegment {
   speaker   String?
   text      String
 
-  // pgvector extension field to store OpenAI embeddings (1536 dimensions)
-  embedding Unsupported("vector(1536)")?
+  // pgvector extension field to store embeddings (1024 dimensions)
+  embedding Unsupported("vector(1024)")?
 
   meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
 }
